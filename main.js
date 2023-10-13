@@ -28,9 +28,8 @@ getDataFromLocalStorage();
 // Add Task
 submit.onclick = function () {
   if (input.value !== "") {
-    const currentDate = new Date();
-    const formattedDate = currentDate.toDateString();
-    addTaskToArray(input.value, formattedDate); // Add Task To Array Of Tasks with the formatted date
+    // Add Task To Array Of Tasks with the formatted date
+    addTaskToArray(input.value, new Date());
     input.value = ""; // Empty Input Field
   }
 };
@@ -54,11 +53,15 @@ tasksDiv.addEventListener("click", (e) => {
 });
 
 function addTaskToArray(taskText, taskDate) {
+  const currentDate = new Date(taskDate);
+  const day = currentDate.getDate();
+  const month = currentDate.getMonth() + 1;
+  const formattedDate = `${day}/${month}`;
   // Task Data
   const task = {
     id: Date.now(),
     title: taskText,
-    date: taskDate,
+    date: formattedDate,
     completed: false,
   };
   // Push Task To Array Of Tasks
