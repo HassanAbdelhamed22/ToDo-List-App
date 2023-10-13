@@ -125,6 +125,13 @@ body {
 .tasks .task.done {
   opacity: 0.4;
 }
+.tasks .task .task-date{
+  font-size: 13px;
+  color: var(--dark-color);
+  display: flex;
+  flex: 1;
+  margin-left: 5px;
+}
 .tasks .task i {
   font-weight: bold;
   width: 32px;
